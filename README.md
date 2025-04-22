@@ -25,6 +25,14 @@ Cambia el nombre de este script para trasmitir en tiempo real video por webcam.
 
 ---
 
+## 🛠 Remoto
+Puedes usar cloudflare para abrir tu equipo a internet y poder visualizar la webcam remotamente.
+
+- Argo Tunnel de Cloudflare
+- Dominio necesario (para asignar a cloudflare)
+
+---
+
 ## 📦 Instalación
 
 1. Clona o descarga este repositorio en tu equipo.
