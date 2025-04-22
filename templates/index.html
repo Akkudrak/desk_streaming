@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streaming Escritorio</title>
+    <script>
+        let secondsElapsed = 0;
+
+        function updateDataUsage() {
+            fetch("/data_usage")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("usage").innerText = data.mb_last_minute + " MB/min";
+                });
+        }
+
+        function updateSeconds() {
+            secondsElapsed++;
+            document.getElementById("seconds").innerText = secondsElapsed + " s";
+        }
+
+        setInterval(() => {
+            updateDataUsage();
+           // updateSeconds();
+        }, 1000); // Cada segundo
+
+        window.onload = () => {
+            updateDataUsage();
+            //updateSeconds();
+        };
+    </script>
+</head>
+<body>
+    <img src="{{ url_for('video_feed') }}" width="240" height="426">
+    <p>Consumo de datos (último minuto): <span id="usage">Cargando...</span></p>
+</body>
+</html>
